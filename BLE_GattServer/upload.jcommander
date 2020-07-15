@@ -1,0 +1,8 @@
+device nrf52832_xxaa
+si SWD
+speed 4000
+connect
+loadfile BUILD/NRF52_DK/GCC_ARM-RELEASE/BLE_GattServer.hex
+r
+g
+q

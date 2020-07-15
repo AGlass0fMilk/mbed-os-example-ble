@@ -14,7 +14,8 @@
             "target.features_add": ["BLE"]
         },
         "NRF52_DK": {
-            "target.features_add": ["BLE"]
+            "target.features_add": ["BLE"],
+            "target.console_uart": false
         }
     }
 }

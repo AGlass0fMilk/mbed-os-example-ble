@@ -23,6 +23,8 @@
 #include "ble/GattServer.h"
 #include "BLEProcess.h"
 
+#include "power_save.h"
+
 using mbed::callback;
 
 /**
@@ -388,6 +390,11 @@ private:
 };
 
 int main() {
+    power_save();
+
+//    while(true) {
+//        rtos::ThisThread::sleep_until(std::chrono::time_point<rtos::Kernel::Clock>::max());
+//    }
     BLE &ble_interface = BLE::Instance();
     events::EventQueue event_queue;
     ClockService demo_service;
