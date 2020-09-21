@@ -14,7 +14,13 @@
             "target.features_add": ["BLE"]
         },
         "NRF52_DK": {
-            "target.features_add": ["BLE"]
+            "target.features_add": ["BLE"],
+            "target.console_uart": false,
+            "target.macros_add": ["CONFIG_NFCT_PINS_AS_GPIOS"]
+        },
+        "EP_AGORA": {
+            "target.console_uart": false,
+            "target.macros_add": ["CONFIG_NFCT_PINS_AS_GPIOS"]
         }
     }
 }
