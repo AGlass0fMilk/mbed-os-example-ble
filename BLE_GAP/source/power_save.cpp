@@ -4,7 +4,8 @@
  */
 
 #include "power_save.h"
-#include "nrf52.h"
+
+#include "mbed.h"
 
 /** Configure all GPIO as inputs w/ disconnected buffers to save power */
 static void configure_gpio(void) {
@@ -20,7 +21,7 @@ static void configure_gpio(void) {
         NRF_P0->PIN_CNF[i] |= 0x2;      // Disconnect input buffer
 
         /** P1 */
-#if defined(MCU_NRF52840)
+#if defined(TARGET_MCU_NRF52840)
         if(i <= 15) {
             // Disable sense on all pins
             NRF_P1->PIN_CNF[i] &= ~(0x30000);
@@ -48,5 +49,12 @@ void power_save(void) {
     dcdc_en();
     configure_gpio();
 
+    // Now configure some GPIO to turn off auxiliary power domains
+
+    // Done by hardware 1M pull-down resistor
+    //static mbed::DigitalOut cell_pwr_en(PIN_NAME_CELL_POWER_ENABLE, 0);
+
+    // Done by hardware 1M pull-down resistor
+    // Sensor power enable
 
 }
