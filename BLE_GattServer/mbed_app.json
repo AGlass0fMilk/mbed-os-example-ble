@@ -1,5 +1,8 @@
 {
     "target_overrides": {
+        "*": {
+            "target.console-uart": false
+        },
         "K64F": {
             "target.components_add": ["BlueNRG_MS"],
             "target.features_add": ["BLE"],

@@ -23,6 +23,8 @@
 #include "ble/GattServer.h"
 #include "BLEProcess.h"
 
+#include "power_save.h"
+
 using mbed::callback;
 
 /**
@@ -388,6 +390,7 @@ private:
 };
 
 int main() {
+    power_save();
     BLE &ble_interface = BLE::Instance();
     events::EventQueue event_queue;
     ClockService demo_service;
